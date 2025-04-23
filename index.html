@@ -62,7 +62,6 @@
       background-color: #6a1b9a;
     }
 
-    /* Responsive design */
     @media (max-width: 600px) {
       h1 {
         font-size: 1.5em;
@@ -94,21 +93,30 @@
     </ul>
 
     <a href="https://ejemplo.com/confirmacion" target="_blank">Confirmar Inscripción</a>
-    <button onclick="reproducirMusica()">Activar Música</button>
+    <button id="botonMusica" onclick="toggleMusica()">Activar Música</button>
   </div>
 
   <!-- Reproductor de música -->
-  <audio id="musica" autoplay loop>
+  <audio id="musica" loop>
     <source src="cancion.mp3" type="audio/mpeg">
     Tu navegador no soporta el elemento de audio.
   </audio>
 
   <script>
-    function reproducirMusica() {
-      const audio = document.getElementById("musica");
-      audio.play().catch(error => {
-        console.log("La reproducción automática fue bloqueada. El usuario debe interactuar.");
-      });
+    const audio = document.getElementById("musica");
+    const boton = document.getElementById("botonMusica");
+
+    function toggleMusica() {
+      if (audio.paused) {
+        audio.play().then(() => {
+          boton.textContent = "Detener Música";
+        }).catch(() => {
+          console.log("Reproducción bloqueada hasta que el usuario interactúe.");
+        });
+      } else {
+        audio.pause();
+        boton.textContent = "Activar Música";
+      }
     }
   </script>
 
