@@ -5,25 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Inscripción al Concurso</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
-      margin: 40px;
+      margin: 0;
+      padding: 0;
       background-color: #f0f0f8;
       color: #333;
     }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
     h1 {
       color: #4a148c;
+      font-size: 2em;
+      margin-bottom: 20px;
+      text-align: center;
     }
+
     ul {
       background-color: #fff;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      list-style: none;
+      line-height: 1.6;
     }
+
+    ul li::before {
+      content: "• ";
+      color: #4a148c;
+      font-weight: bold;
+    }
+
     a, button {
       display: inline-block;
-      margin-top: 20px;
-      padding: 10px 15px;
+      margin: 20px 10px 0 0;
+      padding: 12px 20px;
       background-color: #4a148c;
       color: white;
       text-decoration: none;
@@ -32,26 +57,45 @@
       cursor: pointer;
       font-size: 16px;
     }
+
     a:hover, button:hover {
       background-color: #6a1b9a;
+    }
+
+    /* Responsive design */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5em;
+      }
+
+      ul {
+        padding: 15px;
+      }
+
+      a, button {
+        width: 100%;
+        text-align: center;
+        margin-top: 15px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1>Requisitos para la Inscripción al Concurso</h1>
-  <ul>
-    <li>Ser mayor de 18 años.</li>
-    <li>Completar el formulario de inscripción.</li>
-    <li>Adjuntar una copia de tu documento de identidad.</li>
-    <li>Enviar un video de presentación (máximo 2 minutos).</li>
-    <li>Aceptar los términos y condiciones del concurso.</li>
-  </ul>
+  <div class="container">
+    <h1>Requisitos para la Inscripción al Concurso</h1>
 
-  <a href="https://ejemplo.com/confirmacion" target="_blank">Confirmar Inscripción</a>
+    <ul>
+      <li>Ser mayor de 18 años.</li>
+      <li>Completar el formulario de inscripción.</li>
+      <li>Adjuntar una copia de tu documento de identidad.</li>
+      <li>Enviar un video de presentación (máximo 2 minutos).</li>
+      <li>Aceptar los términos y condiciones del concurso.</li>
+    </ul>
 
-  <!-- Botón para activar la música -->
-  <button onclick="reproducirMusica()">Activar Música</button>
+    <a href="https://ejemplo.com/confirmacion" target="_blank">Confirmar Inscripción</a>
+    <button onclick="reproducirMusica()">Activar Música</button>
+  </div>
 
   <!-- Reproductor de música -->
   <audio id="musica" autoplay loop>
